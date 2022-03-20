@@ -22,17 +22,17 @@ app.listen(port, () => {
 
 
 const transporter = nodemailer.createTransport({
-    port: 2525,
-    host: "smtp.mailtrap.io",
+    port: 465,
+    host: "smtp.gmail.com",
     auth: {
-        user: '5b44f687ebd546',
-        pass: '3b5671c84c3729',
+        user: 'sampathkaali002@gmail.com',
+        pass: 'sam_sri002',
     },
     tls: {
         ciphers:'SSLv3',
         rejectUnauthorized: false
     },
-    secure: false, // upgrades later with STARTTLS -- change this based on the PORT
+    secure: true, // upgrades later with STARTTLS -- change this based on the PORT
 });
 
 route.post('/text-mail', (req, res) => {
