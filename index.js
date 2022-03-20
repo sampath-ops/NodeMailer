@@ -13,8 +13,8 @@ const route = express.Router();
 const port = process.env.PORT || 5000;
 
 app.use(cors({
-    origin: 'https://gcesynergy2022.netlify.app/'
-}))
+    origin: '*'
+}));
 
 app.use('/v1', route);
 
