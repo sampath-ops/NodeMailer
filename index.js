@@ -23,15 +23,15 @@ app.listen(port, () => {
 
 const transporter = nodemailer.createTransport({
     port: 2525,
-    host: "smtp.gmail.com",
+    host: "smtp.mailtrap.io",
     auth: {
-        user: 'sampathkaali002@gmail.com',
-        pass: 'sam_sri002',
+        user: '5b44f687ebd546',
+        pass: '3b5671c84c3729',
     },
     tls: {
-        ciphers:'SSLv3'
+        ciphers:'SSLv3',
+        rejectUnauthorized: false
     },
-    service: "Outlook365",
     secure: false, // upgrades later with STARTTLS -- change this based on the PORT
 });
 
