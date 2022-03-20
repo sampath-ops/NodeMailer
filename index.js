@@ -42,7 +42,7 @@ route.post('/text-mail', (req, res) => {
     const {to, subject, text } = req.body;
 
     const mailData = {
-        from: 'gcesynergy2022@gmail.com',
+        from: 'sampathkaali002@gmail.com',
         to: to,
         subject: subject,
         html: `<b>Your ID: ${text} </b>`,
