@@ -56,5 +56,28 @@ route.post('/text-mail', (req, res) => {
     });
 });
 
+route.post('/contact-team',(req,res)=>{
+
+    const {from, subject, text,fname,lname,phn } = req.body;
+
+    const mailData = {
+        from: from,
+        to: 'gcesynergy2022@gmail.com',
+        subject: subject,
+        html: `
+        <p>Name: ${fname}${lname}</p>
+        <p>Phone Number: ${phn}</p>
+        <p>Message: ${text}</p>
+        `,
+    };
+
+    transporter.sendMail(mailData, (error) => {
+        if (error) {
+            return console.log(error);
+        }
+        res.status(200).send({ message: "Mail send"});
+    });
+})
+
 // get excel sheet
 app.get("/excel",Excel.getData);
