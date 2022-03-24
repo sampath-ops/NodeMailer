@@ -66,6 +66,7 @@ route.post('/contact-team',(req,res)=>{
         subject: subject,
         html: `
         <p>Name: ${fname}${lname}</p>
+        <p>Mail Id: ${from}</p>
         <p>Phone Number: ${phn}</p>
         <p>Message: ${text}</p>
         `,
