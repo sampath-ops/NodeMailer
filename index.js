@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require("cors");
 const app = express();
+const rules = require("./Rules/Rules.js");
+
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -39,21 +41,51 @@ const transporter = nodemailer.createTransport({
 
 route.post('/text-mail', (req, res) => {
 
-    const {to, subject, text } = req.body;
+    const {to, subject, text,userDetails } = req.body;
+
+    let rules_for_events;
+
+    const bool = userDetails.events.includes('Project') || userDetails.events.includes('PPT');
+
+    if(userDetails.events.includes('Project')){
+        rules_for_events = rules.projectRules;
+        console.log(rules_for_events);
+    }
+    else if(userDetails.events.includes('PPT')){
+        rules_for_events = rules.PaperRules;
+    }
+    else if(userDetails.events.includes('Project') && userDetails.events.includes('PPT')){
+        rules_for_events = rules;
+    }
 
     const mailData = {
         from: 'gcesynergy2022@gmail.com',
         to: to,
         subject: subject,
-        html: `<b>Your ID: ${text} </b>`,
+        html: `
+        <h2>Your Details</h2>
+        <p>Name: ${userDetails.name}</p>
+        <p>Email: ${userDetails.email}</p>
+        <p>Phone: ${userDetails.phone}</p>
+        <p>College: ${userDetails.college}</p>
+        <p>Department: ${userDetails.department}</p>
+        <p>Year: ${userDetails.year}</p>
+        <p>Events: ${userDetails.events.join()}</p>
+        <p>Accomodation: ${userDetails.accomodation}</p>
+        <p>Your ID: <b>${text}</b></p>
+        <p>${bool ? rules_for_events:""}</p>
+        `,
     };
 
-    transporter.sendMail(mailData, (error) => {
-        if (error) {
-            return console.log(error);
-        }
-        res.status(200).send({ message: "Mail send"});
-    });
+    console.log(mailData);
+
+
+    // transporter.sendMail(mailData, (error) => {
+    //     if (error) {
+    //         return console.log(error);
+    //     }
+    //     res.status(200).send({ message: "Mail send"});
+    // });
 });
 
 route.post('/contact-team',(req,res)=>{
