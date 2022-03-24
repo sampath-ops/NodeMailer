@@ -57,7 +57,7 @@ route.post('/text-mail', (req, res) => {
     else if(userDetails.events.includes('Project') && userDetails.events.includes('PPT')){
         rules_for_events = rules;
     }
-
+// <p>${bool ? rules_for_events:""}</p>
     const mailData = {
         from: 'gcesynergy2022@gmail.com',
         to: to,
@@ -73,8 +73,7 @@ route.post('/text-mail', (req, res) => {
         <p>Events: ${userDetails.events.join()}</p>
         <p>Accomodation: ${userDetails.accomodation}</p>
         <p>Your ID: <b>${text}</b></p>
-        <p>${bool ? rules_for_events:""}</p>
-        `,
+            `,
     };
 
     console.log(mailData);
