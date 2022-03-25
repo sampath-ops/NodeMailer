@@ -43,21 +43,20 @@ route.post('/text-mail', (req, res) => {
 
     const {to, subject, text,userDetails } = req.body;
 
-    let rules_for_events;
+    // let rules_for_events;
+    
+    // const bool = userDetails.events.includes('Project') || userDetails.events.includes('PPT');
 
-    const bool = userDetails.events.includes('Project') || userDetails.events.includes('PPT');
+    // if(userDetails.events.includes('Project')){
+    //     rules_for_events = rules.projectRules;
+    // }
+    // else if(userDetails.events.includes('PPT')){
+    //     rules_for_events = rules.PaperRules;
+    // }
+    // else if(userDetails.events.includes('Project') && userDetails.events.includes('PPT') || userDetails.events.includes('All Events')){
+    //     rules_for_events = rules;
+    // }
 
-    if(userDetails.events.includes('Project')){
-        rules_for_events = rules.projectRules;
-        console.log(rules_for_events);
-    }
-    else if(userDetails.events.includes('PPT')){
-        rules_for_events = rules.PaperRules;
-    }
-    else if(userDetails.events.includes('Project') && userDetails.events.includes('PPT')){
-        rules_for_events = rules;
-    }
-// <p>${bool ? rules_for_events:""}</p>
     const mailData = {
         from: 'gcesynergy2022@gmail.com',
         to: to,
@@ -73,18 +72,15 @@ route.post('/text-mail', (req, res) => {
         <p>Events: ${userDetails.events.join()}</p>
         <p>Accomodation: ${userDetails.accomodation}</p>
         <p>Your ID: <b>${text}</b></p>
-            `,
+        <b>Note:</b><p>Don't miss to check <a href="https://gcesynergy2022.netlify.app/">GuideLines</a> for Each Event</p>`,
     };
 
-    console.log(mailData);
-
-
-    // transporter.sendMail(mailData, (error) => {
-    //     if (error) {
-    //         return console.log(error);
-    //     }
-    //     res.status(200).send({ message: "Mail send"});
-    // });
+    transporter.sendMail(mailData, (error) => {
+        if (error) {
+            return console.log(error);
+        }
+        res.status(200).send({ message: "Mail send"});
+    });
 });
 
 route.post('/contact-team',(req,res)=>{
