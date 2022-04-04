@@ -71,7 +71,7 @@ route.post('/text-mail', (req, res) => {
         <p>Year: ${userDetails.year}</p>
         <p>Events: ${userDetails.events.join()}</p>
         <p>Accomodation: ${userDetails.accomodation}</p>
-        <p>Your ID: <b>${text}</b></p>
+        <p>Your ID: <b>SYNERGY-${text}</b></p>
         <b>Note:</b><p>Don't miss to check <a href="https://gcesynergy2022.netlify.app/guide-lines">GuideLines</a> for Each Event</p>`,
     };
 
