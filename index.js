@@ -72,7 +72,7 @@ route.post('/text-mail', (req, res) => {
         <p>Events: ${userDetails.events.join()}</p>
         <p>Accomodation: ${userDetails.accomodation}</p>
         <p>Your ID: <b>${text}</b></p>
-        <b>Note:</b><p>Don't miss to check <a href="https://gcesynergy2022.netlify.app/guide-lines">GuideLines</a> for Each Event</p>`,
+        <b>Note:</b><p>Don't miss to check <a href="https://www.synergy2022.tech/guide-lines">GuideLines</a> for Each Event</p>`,
     };
 
     transporter.sendMail(mailData, (error) => {
