@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const cors = require("cors");
 const app = express();
-const rules = require("./Rules/Rules.js");
+const progenyRouter = require("./ProgeniRoutes");
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
@@ -24,7 +24,6 @@ app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
 });
 
-
 const transporter = nodemailer.createTransport({
     port: 465,
     host: "smtp.gmail.com",
@@ -42,20 +41,6 @@ const transporter = nodemailer.createTransport({
 route.post('/text-mail', (req, res) => {
 
     const {to, subject, text,userDetails } = req.body;
-
-    // let rules_for_events;
-    
-    // const bool = userDetails.events.includes('Project') || userDetails.events.includes('PPT');
-
-    // if(userDetails.events.includes('Project')){
-    //     rules_for_events = rules.projectRules;
-    // }
-    // else if(userDetails.events.includes('PPT')){
-    //     rules_for_events = rules.PaperRules;
-    // }
-    // else if(userDetails.events.includes('Project') && userDetails.events.includes('PPT') || userDetails.events.includes('All Events')){
-    //     rules_for_events = rules;
-    // }
 
     const mailData = {
         from: 'gcesynergy2022@gmail.com',
@@ -106,6 +91,9 @@ route.post('/contact-team',(req,res)=>{
         res.status(200).send({ message: "Mail send"});
     });
 })
+
+// progeni routes
+app.use("/v1/progeni-mail",progenyRouter);
 
 // get excel sheet
 app.get("/excel",Excel.getData);
