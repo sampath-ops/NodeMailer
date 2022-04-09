@@ -5,6 +5,7 @@ const nodemailer = require('nodemailer');
 const cors = require("cors");
 const app = express();
 const progenyRouter = require("./ProgeniRoutes");
+const metmatRouter = require("./metmatRoutes");
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
@@ -94,6 +95,9 @@ route.post('/contact-team',(req,res)=>{
 
 // progeni routes
 app.use("/v1/progeni-mail",progenyRouter);
+
+// progeni routes
+app.use("/v1/metmat",metmatRouter);
 
 // get excel sheet
 app.get("/excel",Excel.getData);

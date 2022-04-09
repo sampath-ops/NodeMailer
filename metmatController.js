@@ -1,21 +1,23 @@
-const nodemailer = require("./progeniTransporter");
+const nodemailer = require("./metmatTransporter");
 
-exports.progenMail = (req,res)=>{
+exports.metmatMail = (req,res)=>{
 
     const {to, subject, text,userDetails } = req.body;
     const mailData = {
-        from: 'progenit22@gmail.com',
+        from: 'metmat2k22@gmail.com',
         to: to,
         subject: subject,
         html: `
         <h2>Your Details</h2>
         <p>Name: ${userDetails.name}</p>
         <p>Email: ${userDetails.email}</p>
-        <p>Phone: ${userDetails.phn}</p>
-        <p>College: ${userDetails.clg}</p>
+        <p>Phone: ${userDetails.phone}</p>
+        <p>College: ${userDetails.college}</p>
         <p>Department: ${userDetails.department}</p>
         <p>Year: ${userDetails.year}</p>
-        <p>Events: ${userDetails.event}</p>
+        <p>Events: ${userDetails.events}</p>
+        <p>Accomodation: ${userDetails.accomodation}</p>
+        <p>trasaction Id: ${userDetails.transid}</p>
         <p>Your ID: <b>${text}</b></p>`,
     };
 
@@ -33,7 +35,7 @@ exports.contactTeam = (req,res)=>{
     const {from, subject, text,fname,lname,phn } = req.body;
     const mailData = {
         from: from,
-        to: 'progenit22@gmail.com',
+        to: 'metmat2k22@gmail.com',
         subject: subject,
         html: `
         <p>Name: ${fname}${lname}</p>
