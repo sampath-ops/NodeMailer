@@ -8,7 +8,7 @@ router.get("/",(req,res)=>{
 
 router.post("/text-Mail",ProgeniController.progenMail);
 
-router.post("/contact-team'",ProgeniController.contactTeam);
+router.post("/contact-team",ProgeniController.contactTeam);
 
 module.exports = router;
 
