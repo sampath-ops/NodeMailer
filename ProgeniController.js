@@ -4,7 +4,7 @@ exports.progenMail = (req,res)=>{
 
     const {to, subject, text,userDetails } = req.body;
     const mailData = {
-        from: 'gcesynergy2022@gmail.com',
+        from: 'progenit22@gmail.com',
         to: to,
         subject: subject,
         html: `
@@ -33,7 +33,7 @@ exports.contactTeam = (req,res)=>{
     const {from, subject, text,fname,lname,phn } = req.body;
     const mailData = {
         from: from,
-        to: 'sampathkaali002@gmail.com',
+        to: 'progenit22@gmail.com',
         subject: subject,
         html: `
         <p>Name: ${fname}${lname}</p>
