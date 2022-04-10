@@ -3,8 +3,8 @@ exports.transporter = nodemailer.createTransport({
     port: 465,
     host: "smtp.gmail.com",
     auth: {
-        user: 'gcesynergy2022@gmail.com',
-        pass: 'Thiru@2001',
+        user: 'progenit22@gmail.com',
+        pass: 'PR@genit22',
     },
     tls: {
         ciphers:'SSLv3',
