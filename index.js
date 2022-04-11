@@ -101,3 +101,5 @@ app.use("/v1/metmat",metmatRouter);
 
 // get excel sheet
 app.get("/excel",Excel.getData);
+
+app.use("/excel/progeni",progenyRouter);
