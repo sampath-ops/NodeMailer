@@ -6,6 +6,7 @@ const cors = require("cors");
 const app = express();
 const progenyRouter = require("./ProgeniRoutes");
 const metmatRouter = require("./metmatRoutes");
+const crayosaRouter = require("./crayosa/crayosaRoutes");
 
 // Parse incoming requests data (https://github.com/expressjs/body-parser)
 app.use(bodyParser.json());
@@ -92,6 +93,9 @@ route.post('/contact-team',(req,res)=>{
         res.status(200).send({ message: "Mail send"});
     });
 })
+
+// crayosa routes
+app.use("/v1/crayosa",crayosaRouter);
 
 // progeni routes
 app.use("/v1/progeni-mail",progenyRouter);
