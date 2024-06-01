@@ -7,4 +7,5 @@ This project is an Express.js API built with Node.js that utilizes the Node Mail
 - **Support for Multiple Domains**: The API supports sending emails for different domain sites, allowing for easy integration into various projects.
 - **Express.js Backend**: Built with Express.js, providing a robust and scalable backend framework for handling HTTP requests.
 - **Modular Design**: The codebase is organized in a modular manner, making it easy to extend and maintain.
-- **Customizable Configuration**: Easily configure SMTP settings, email templates, and other parameters to suit your specific requirements.
+- **Customizable Configuration**: Easily configure SMTP settings, email templates, and other parameters to suit your specific requirements..
+
